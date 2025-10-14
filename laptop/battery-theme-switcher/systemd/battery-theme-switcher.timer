@@ -1,0 +1,21 @@
+[Unit]
+# Description: What this timer does
+Description=Battery Theme Switcher Timer
+# Requires: This timer needs the service file to exist
+Requires=battery-theme-switcher.service
+
+[Timer]
+# OnBootSec: How long to wait after boot before first run
+# (gives system time to fully start up)
+OnBootSec=1min
+# OnUnitActiveSec: How long to wait between each run
+# (checks battery every 30 seconds)
+OnUnitActiveSec=30sec
+# AccuracySec: Systemd can delay up to this amount to batch timers together
+# (saves power by waking CPU less often, 10sec is fine for our use)
+AccuracySec=10sec
+
+[Install]
+# WantedBy: When you "enable" this timer, it gets added to timers.target
+# timers.target is systemd's collection of all active timers
+WantedBy=timers.target

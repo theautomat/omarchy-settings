@@ -1,0 +1,17 @@
+[Unit]
+# Description: What this service does (shows up in systemd status)
+Description=Battery Theme Switcher Check
+# After: This service should only start after the graphical session is ready
+# (we need the desktop environment running to change themes)
+After=graphical-session.target
+
+[Service]
+# Type=oneshot: This service runs once and exits (not a long-running daemon)
+# Systemd considers it "done" after the script completes
+Type=oneshot
+# ExecStart: The command to run when this service is triggered
+# %h is a systemd variable that expands to your home directory
+ExecStart=%h/.local/bin/battery-theme-switcher.sh
+# Environment: Set environment variables the script needs
+# DISPLAY=:0 tells GUI apps which display to use (needed for theme changes)
+Environment=DISPLAY=:0
