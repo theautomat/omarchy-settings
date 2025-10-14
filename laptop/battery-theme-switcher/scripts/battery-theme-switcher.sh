@@ -1,14 +1,14 @@
 #!/bin/bash
 
 # Battery-based theme switcher for Omarchy
-# Switches to "ugly" theme at 5% battery
+# Switches to "ugly" theme at 10% battery
 
-BATTERY_THRESHOLD=5
+BATTERY_THRESHOLD=10
 UGLY_THEME="matte-black"
 STATE_FILE="/run/user/$UID/omarchy_theme_switched"
 
 get_battery_percentage() {
-  upower -i "$(upower -e | grep 'BAT')" \
+  upower -i "$(upower -e | grep 'battery')" \
   | awk -F: '/percentage/ {
       gsub(/[%[:space:]]/, "", $2);
       val=$2;
@@ -18,7 +18,7 @@ get_battery_percentage() {
 }
 
 get_battery_state() {
-  upower -i $(upower -e | grep 'BAT') | grep -E "state" | awk '{print $2}'
+  upower -i $(upower -e | grep 'battery') | grep -E "state" | awk '{print $2}'
 }
 
 get_current_theme() {
