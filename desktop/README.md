@@ -22,6 +22,7 @@ Omarchy customizations for desktop workstation.
 - **CLAUDE.md** - Detailed Omarchy configuration guide and system info for AI assistants
 - **app-changes.md** - Log of application binding and configuration changes
 - **keyboard-repeat-changes.md** - Keyboard repeat rate adjustments
+- **monitor-scaling.md** - Display scaling configuration for 27" 4K monitor
 - **logitech-g305-boot-issue.md** - Hardware troubleshooting notes (Logitech mouse fix)
 
 ## Quick Reference
