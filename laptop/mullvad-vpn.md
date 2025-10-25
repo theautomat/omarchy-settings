@@ -37,6 +37,9 @@ mullvad lockdown-mode set on
 
 # Allow local network access (printers, local devices)
 mullvad lan set allow
+
+# Set location to Los Angeles (important for banking and financial services)
+mullvad relay set location us lax
 ```
 
 **Active Features**:
@@ -63,11 +66,36 @@ mullvad relay list          # List available servers
 mullvad relay set location  # Change server location
 ```
 
+### Server Location
+
+**Current location**: Los Angeles, CA
+```bash
+mullvad relay set location us lax  # Los Angeles (closest to home)
+```
+
+**Important**: Use US servers to avoid issues with:
+- Banking services (Mercury.com, Wells Fargo, etc.)
+- Payment processors (PayPal, Stripe)
+- Streaming services (Netflix, Hulu)
+
+Many services block or flag foreign IPs as suspicious activity.
+
+**Other US city options**:
+```bash
+mullvad relay set location us lax  # Los Angeles
+mullvad relay set location us nyc  # New York City
+mullvad relay set location us chi  # Chicago
+mullvad relay set location us atl  # Atlanta
+mullvad relay set location us sea  # Seattle
+mullvad relay set location us     # Any US city (automatic)
+```
+
 ### Rationale
 - **Auto-connect**: Ensures VPN protection starts immediately on boot without manual intervention
 - **Lockdown mode**: Critical for preventing accidental IP leaks if VPN drops
 - **LAN access**: Necessary for accessing local printers, NAS, and other home network devices
 - **WireGuard over OpenVPN**: Better performance and battery efficiency for mobile use
+- **US location**: Prevents banking/financial service lockouts from foreign IP detection
 
 ### Notes
 - The GUI and CLI both control the same daemon, so settings apply system-wide
