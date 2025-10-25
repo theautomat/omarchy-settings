@@ -16,6 +16,7 @@ Omarchy customizations for Apple Silicon laptop running Asahi Linux.
 - **backlight-keyboard.md** - Keyboard backlight configuration notes
 - **backlight-effects.sh** - Script for keyboard backlight effects
 - **battery-theme-switcher/** - Auto-switch to power-saving theme at low battery
+- **mullvad-vpn.md** - Mullvad VPN installation and security settings
 
 ## Hardware-Specific Notes
 
@@ -34,3 +35,11 @@ Apply custom backlight effects:
 
 ### Battery Theme Switcher
 Automatically switches to matte-black theme when battery drops to 5% or below. See [battery-theme-switcher/battery-theme-switcher.md](battery-theme-switcher/battery-theme-switcher.md) for installation and configuration.
+
+### Mullvad VPN
+Check VPN status and connection:
+```bash
+mullvad status
+mullvad connect
+```
+See [mullvad-vpn.md](mullvad-vpn.md) for full configuration details.
